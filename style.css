@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,500;1,700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    --color: grey;
+    --currentArticle-bg: black;
+}
+body {
+    font-family: 'Ubuntu', sans-serif;
+    min-height: 100vh;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    background-image: url('./img/lluvia3.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+body > video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -100;
+}
+body > header {
+    width: 85%;
+    display: flex;
+    align-self: center;
+    margin: 5vmin 0;
+}
+body > header > button {
+    font-size: x-large;
+    font-weight: bold;
+    position: fixed;
+    z-index: 1;
+    top: 30%;
+    left: 25%;
+    background: rgb(153, 153, 153);
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.2),
+        var(--currentArticle-bg)
+    );
+    width: 50%;
+    height: 10%;
+    border: 2px outset rgb(138, 138, 138);
+    color: white;
+    text-align: center;
+    padding: 0.5rem 0;
+    border-radius: 15px;
+}
+body > header > button:hover {
+    text-shadow: 0 0 5px lightgray;
+}
+body > header > button:active {
+    background: rgba(6, 7, 20, 1);
+    background: linear-gradient(
+        var(--currentArticle-bg),
+        rgba(255, 255, 255, 0.2)
+    );
+    border-style: inset;
+}
+body > header > h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 9vmin;
+    padding: 2vmin 1vmin;
+    border-radius: 20px;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+    color: whitesmoke;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), var(--currentArticle-bg));
+}
+/***********************
+ Sección next y current 
+***********************/
+section#current > article,
+section#current > div > h2,
+section#current > div > h3,
+section#next > article {
+    word-wrap: break-word;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+    color: whitesmoke;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), var(--currentArticle-bg));
+    line-height: 2;
+}
+/****************
+ Sección current
+****************/
+section#current > div > h2,
+section#current > div > h3 {
+    width: 60%;
+    margin: 7vmin auto;
+    height: 15vh;
+    text-align: center;
+    border-radius: 20%;
+}
+section#current > div > h2 {
+    font-size: 9vmin;
+}
+section#current > div > h3 {
+    font-size: 5vmin;
+    padding-top: 4vmin;
+}
+section#current > article {
+    width: 83%;
+    margin: auto;
+    padding-bottom: 7vmin;
+}
+/*************
+ Sección next
+*************/
+section#next {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+section#next > article {
+    width: 35%;
+    margin: 6vmin;
+    padding: 5vmin 0;
+}
+/******** 
+ Tablet
+********/
+@media (min-width: 700px) {
+    body > header {
+        width: 95%;
+    }
+    body > header > button {
+        font-size: xx-large;
+        top: 30%;
+        left: 25%;
+        height: 15%;
+        border-radius: 20px;
+    }
+    section#current {
+        display: flex;
+    }
+    section#current > div {
+        width: 60%;
+    }
+    section#current > div > h2,
+    section#current > div > h3 {
+        width: 80%;
+        margin: 10vmin 3vmin;
+    }
+    section#current > div > h2 {
+        font-size: 8vmin;
+    }
+    section#current > div > h3 {
+        padding: 2vmin 0;
+    }
+    section#current > article {
+        width: 40%;
+        margin: 3vmin 3vmin;
+        padding-bottom: 5vmin 0;
+    }
+    section#next > article {
+        width: 17%;
+        padding-bottom: 5vmin;
+        margin: 3vmin;
+    }
+}
+/******************
+ Tablet más grande
+******************/
+@media (min-width: 850px) {
+    section#current > div > h2,
+    section#current > div > h3 {
+        height: 25vh;
+        margin: 5vmin 10vmin;
+    }
+    section#current > div > h2 {
+        font-size: 9vmin;
+        padding: 3vmin 0;
+    }
+    section#current > div > h3 {
+        font-size: 6vmin;
+        padding: 6vmin 0;
+    }
+    section#current > article {
+        width: 45%;
+        margin: 5vmin 10vmin;
+        padding-bottom: 5vmin 0;
+    }
+}
+/**********
+ Ordenador
+**********/
+@media (min-width: 1000px) {
+    body > header > button {
+        left: 30%;
+        width: 40%;
+        font-size: 7vmin;
+    }
+    section#current > div > h2,
+    section#current > div > h3 {
+        width: 70%;
+        height: 20vh;
+        margin: 5vmin 15vmin 5vmin;
+    }
+    section#current > div > h2 {
+        font-size: 10vmin;
+        padding: 0 0 1vmin 0;
+    }
+    section#current > div > h3 {
+        padding: 4vmin 0 0 0;
+    }
+    section#current > article {
+        width: 33%;
+        margin: 5vmin 15vmin 5vmin;
+        padding-bottom: 5vmin 0;
+    }
+    section#next > article {
+        width: 8%;
+        padding-bottom: 3vmin;
+    }
+}
