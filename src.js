@@ -11,7 +11,11 @@ function getNavGeolocation() {
 }
 let lat;
 let lon;
-/* Función de posición */
+
+/**********************
+ * Función de posición *
+ ***********************/
+
 function success(geolocationPosition) {
     let coords = geolocationPosition.coords;
     lat = coords.latitude;
@@ -22,7 +26,11 @@ function error(err) {
     alert('Geolocation cannot be obtained');
     document.querySelector('#error').innerHTML = err.message;
 }
-/* Obteniendo datos de la API */
+
+/******************************
+ * Obteniendo datos de la API *
+ ******************************/
+
 async function getDataOWM(lat, lon) {
     clock();
     try {
@@ -31,9 +39,9 @@ async function getDataOWM(lat, lon) {
         );
         const data = await response.json();
         console.log(data);
-        /*******************************
-         Datos del día y momento actual
-        *******************************/
+        /*********************************
+         *Datos del día y momento actual *
+         **********************************/
         let {
             clouds: currentClouds,
             feels_like: currentFeels_like,
@@ -68,11 +76,14 @@ async function getDataOWM(lat, lon) {
         currentSectionChild.append(currentP1, currentP2, currentP3);
         currentArticle.append(currentHeader, currentSectionChild);
         sectionCurrent.append(currentArticle);
-        /******************************
-         Datos de las siguientes horas 
-        ******************************/
+
+        /*********************************
+         * Datos de las siguientes horas *
+         ********************************/
+
         let sectionNext = document.querySelector('section#next');
         let frag = document.createDocumentFragment();
+
         for (let hour = 1; hour < 9; hour++) {
             let { dt: nextHour, temp: nextTemp } = data.hourly[hour];
             let { main: nextMain, icon: nextIcon } =
@@ -93,7 +104,9 @@ async function getDataOWM(lat, lon) {
             articleNext.append(frag);
             sectionNext.append(articleNext);
         }
+
         let h1Header = document.querySelector('body > header > h1');
+
         if (
             data.hourly[1].weather[0].main === 'Rain' ||
             data.hourly[2].weather[0].main === 'Rain' ||
@@ -112,11 +125,19 @@ async function getDataOWM(lat, lon) {
         console.error(error);
     }
 }
-/* Formato de numero para horas, minutos y segundos */
+
+/****************************************************
+ * Formato de numero para horas, minutos y segundos *
+ ****************************************************/
+
 const formatNum = (num) => {
     return num < 10 ? '0' + num : num;
 };
-/* Función de hora y fecha actual */
+
+/**************************
+ * Función de hora y fecha *
+ ***************************/
+
 function clock() {
     let currentDate = new Date();
     let currentDay = currentDate.getDate();
@@ -149,7 +170,11 @@ function clock() {
     currentDiv.append(clockH2, dateH3);
     let currentSection = document.querySelector('section#current');
     currentSection.append(currentDiv);
-    /* Cambiando background según la hora */
+
+    /**************************************
+     * Cambiando background según la hora *
+     **************************************/
+
     let day = './videos/dia.mp4';
     let afternoom = './videos/atardecer.mp4';
     let night = './videos/noche.mp4';
@@ -167,7 +192,11 @@ function clock() {
     }
     video.append(source);
 }
-/* Asignando evento al botón */
+
+/*****************************
+ * Asignando evento al botón *
+ * ***************************/
+
 willRainButton.addEventListener('click', () => {
     willRainButton.style.display = 'none';
     getNavGeolocation();

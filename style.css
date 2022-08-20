@@ -6,7 +6,7 @@
 }
 html {
     --color: grey;
-    --currentArticle-bg: black;
+    --currentArticle-bg: rgb(239, 146, 16);
 }
 body {
     font-family: 'Ubuntu', sans-serif;
@@ -34,13 +34,12 @@ body > header {
     margin: 5vmin 0;
 }
 body > header > button {
-    font-size: x-large;
+    font-size: 6vmin;
     font-weight: bold;
     position: fixed;
     z-index: 1;
     top: 30%;
     left: 25%;
-    background: rgb(153, 153, 153);
     background: linear-gradient(
         rgba(255, 255, 255, 0.2),
         var(--currentArticle-bg)
@@ -51,7 +50,7 @@ body > header > button {
     color: white;
     text-align: center;
     padding: 0.5rem 0;
-    border-radius: 15px;
+    border-radius: 7vmin;
 }
 body > header > button:hover {
     text-shadow: 0 0 5px lightgray;
@@ -60,7 +59,8 @@ body > header > button:active {
     background: rgba(6, 7, 20, 1);
     background: linear-gradient(
         var(--currentArticle-bg),
-        rgba(255, 255, 255, 0.2)
+        var(--currentArticle-bg),
+        rgba(255, 255, 255, 0.414)
     );
     border-style: inset;
 }
@@ -69,11 +69,18 @@ body > header > h1 {
     text-align: center;
     font-size: 9vmin;
     padding: 2vmin 1vmin;
-    border-radius: 20px;
-    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
-    color: whitesmoke;
-    background: linear-gradient(rgba(0, 0, 0, 0.2), var(--currentArticle-bg));
 }
+
+h1 {
+    background: -webkit-linear-gradient(
+        var(--currentArticle-bg),
+        rgba(255, 255, 255, 0.2)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: rgba(6, 7, 20, 1);
+}
+
 /***********************
  Sección next y current 
 ***********************/
@@ -83,10 +90,9 @@ section#current > div > h3,
 section#next > article {
     word-wrap: break-word;
     text-align: center;
-    border-radius: 20px;
-    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
-    color: whitesmoke;
-    background: linear-gradient(rgba(0, 0, 0, 0.2), var(--currentArticle-bg));
+    box-shadow: 1vmin 1vmin 1vmin 1vmin #0f0202a3;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
     line-height: 2;
 }
 /****************
@@ -94,17 +100,17 @@ section#next > article {
 ****************/
 section#current > div > h2,
 section#current > div > h3 {
-    width: 60%;
+    width: 83%;
     margin: 7vmin auto;
+    padding: 6vmin;
     height: 15vh;
     text-align: center;
-    border-radius: 20%;
 }
 section#current > div > h2 {
-    font-size: 9vmin;
+    font-size: 7vmin;
 }
 section#current > div > h3 {
-    font-size: 5vmin;
+    font-size: 7vmin;
     padding-top: 4vmin;
 }
 section#current > article {
@@ -133,11 +139,10 @@ section#next > article {
         width: 95%;
     }
     body > header > button {
-        font-size: xx-large;
+        font-size: 4vmin;
         top: 30%;
         left: 25%;
         height: 15%;
-        border-radius: 20px;
     }
     section#current {
         display: flex;
@@ -149,12 +154,14 @@ section#next > article {
     section#current > div > h3 {
         width: 80%;
         margin: 10vmin 3vmin;
+        padding: 3vmin;
     }
     section#current > div > h2 {
-        font-size: 8vmin;
+        font-size: 6vmin;
     }
     section#current > div > h3 {
         padding: 2vmin 0;
+        font-size: 6vmin;
     }
     section#current > article {
         width: 40%;
@@ -167,6 +174,7 @@ section#next > article {
         margin: 3vmin;
     }
 }
+
 /******************
  Tablet más grande
 ******************/
@@ -177,11 +185,11 @@ section#next > article {
         margin: 5vmin 10vmin;
     }
     section#current > div > h2 {
-        font-size: 9vmin;
+        font-size: 4vmin;
         padding: 3vmin 0;
     }
     section#current > div > h3 {
-        font-size: 6vmin;
+        font-size: 4vmin;
         padding: 6vmin 0;
     }
     section#current > article {
@@ -197,7 +205,7 @@ section#next > article {
     body > header > button {
         left: 30%;
         width: 40%;
-        font-size: 7vmin;
+        font-size: 3vmin;
     }
     section#current > div > h2,
     section#current > div > h3 {
@@ -206,7 +214,6 @@ section#next > article {
         margin: 5vmin 15vmin 5vmin;
     }
     section#current > div > h2 {
-        font-size: 10vmin;
         padding: 0 0 1vmin 0;
     }
     section#current > div > h3 {
